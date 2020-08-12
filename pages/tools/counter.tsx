@@ -6,17 +6,37 @@ const toolName = 'Counter'
 
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [successCount, setSuccessCount] = useState(0);
+  const [warningCount, setWarningCount] = useState(0);
+  const [dangerCount, setDangerCount] = useState(0);
 
   return (
     <Layout toolName={toolName} description="Click 回数をカウントするよ">
 
       <CardDeck>
 
-        <Card border="secondary">
+        <Card border="success">
           <Card.Body>
-            <Card.Title>You clicked {count} times</Card.Title>
-            <Button variant="success" onClick={() => setCount(count + 1)}>
+            <Card.Title>You clicked {successCount} times</Card.Title>
+            <Button variant="success" onClick={() => setSuccessCount(successCount + 1)}>
+              Click me
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card border="warning">
+          <Card.Body>
+            <Card.Title>You clicked {warningCount} times</Card.Title>
+            <Button variant="warning" onClick={() => setWarningCount(warningCount + 1)}>
+              Click me
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card border="danger">
+          <Card.Body>
+            <Card.Title>You clicked {dangerCount} times</Card.Title>
+            <Button variant="danger" onClick={() => setDangerCount(dangerCount + 1)}>
               Click me
             </Button>
           </Card.Body>

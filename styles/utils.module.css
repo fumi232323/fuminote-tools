@@ -22,7 +22,7 @@
 
 .headingMd {
   font-size: 1.2rem;
-  line-height: 1.5; 
+  line-height: 1.5;
 }
 
 .borderCircle {
@@ -63,4 +63,5 @@
 .description {
   line-height: 1.5;
   font-size: 1.2rem;
+  margin: 0 0 2rem;
 }

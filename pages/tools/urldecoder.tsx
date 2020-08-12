@@ -8,42 +8,34 @@ const toolName = 'URL decode'
 
 export default function URLDecode() {
   const [url, setUrl] = useState('');
-  const [decodedUrl, setDecodedUrl] = useState('The decoded URL is displayed here');
+  const [decodedUrl, setDecodedUrl] = useState('The decoded URL will be displayed here.');
 
   return (
     <Layout toolName={toolName} description="URL をデコードするよ">
 
-      <Card border="secondary">
-
-        <Card.Body>
-
-          <InputGroup>
-            <FormControl
-              placeholder="Enter the URL you want to decode"
-              aria-label="url"
-              aria-describedby="basic-addon2"
-              value={url}
-              onChange={(event) => setUrl(event.target.value)}
-            />
-            <InputGroup.Append>
-              <Button
-                variant="primary"
-                onClick={() => setDecodedUrl(decodeURI(url))}
-              >
-                Decode
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => setUrl('')}
-              >
-                Reset
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-
-        </Card.Body>
-
-      </Card>
+      <InputGroup>
+        <FormControl
+          placeholder="Enter the URL you want to decode"
+          aria-label="url"
+          aria-describedby="basic-addon2"
+          value={url}
+          onChange={(event) => setUrl(event.target.value)}
+        />
+        <InputGroup.Append>
+          <Button
+            variant="primary"
+            onClick={() => setDecodedUrl(decodeURI(url))}
+          >
+            Decode
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => setUrl('')}
+          >
+            Reset
+          </Button>
+        </InputGroup.Append>
+      </InputGroup>
 
       <br/>
       <Card
