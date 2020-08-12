@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import Layout from "../../components/layout";
-import styles from "../../styles/utils.module.css";
+import Layout  from "../../components/layout";
 import {Card, InputGroup, FormControl, Button} from "react-bootstrap";
+import styled from 'styled-components';
 
-const toolName = 'URL decode'
-
+const CodeBlock = styled.div`
+  background: inherit;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+`
+const toolTitle = 'URL decode'
 
 export default function URLDecode() {
   const [url, setUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('The decoded URL will be displayed here.');
 
   return (
-    <Layout toolName={toolName} description="URL をデコードするよ">
+    <Layout toolTitle={toolTitle} description="URL をデコードするよ">
 
       <InputGroup>
         <FormControl
@@ -44,9 +51,9 @@ export default function URLDecode() {
       >
         <Card.Header>Decoded URL</Card.Header>
         <Card.Body>
-          <p className={styles.code}>
+          <CodeBlock>
             {decodedUrl}
-          </p>
+          </CodeBlock>
         </Card.Body>
       </Card>
 

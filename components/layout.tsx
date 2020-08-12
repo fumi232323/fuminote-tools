@@ -1,26 +1,65 @@
-import Head from "next/head";
-import styles from "./layout.module.css"
-import utilStyles from "../styles/utils.module.css"
-import {Container} from "react-bootstrap";
-import Link from "next/link";
 import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import {Container} from "react-bootstrap";
+import styled from 'styled-components';
 
-const siteName = 'Fuminote tools'
-export const siteTitle = 'Fuminote tools'
+const PageContainer = styled(Container)`
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+`;
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const Robo = styled.img`
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: rotate(360deg)
+  }
+`;
+const PageTitle = styled.h1`
+  font-size: 4rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+`;
+const Description = styled.p`
+  line-height: 1.5;
+  font-size: 1.2rem;
+  margin: 0 0 2rem;
+`;
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+
+  &:hover
+  &:focus
+  &:active {
+    color: #0070f3;
+    text-decoration: underline;
+  }
+`;
+const siteTitle = 'Fuminote tools'
 
 export default function Layout({
   children,
   home,
-  toolName,
+  toolTitle,
   description
 }: {
   children: React.ReactNode,
   home?: boolean,
-  toolName?: string,
+  toolTitle?: string,
   description?: string,
 }) {
   return (
-    <Container className={styles.container}>
+    <PageContainer>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -29,45 +68,43 @@ export default function Layout({
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{toolName || siteTitle}</title>
+        <title>{toolTitle || siteTitle}</title>
       </Head>
 
-      <header className={styles.header}>
+      <Header>
         {home ? (
           <>
-            <img
-              src="/images/robobo.png"
-              className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-              alt={siteName}
+            <Robo
+              src="/images/robobobo.png"
+              alt={siteTitle}
             />
-            <h1 className={utilStyles.heading2Xl}>{siteName}</h1>
-            <p className={utilStyles.description}>{description}</p>
+            <PageTitle>{siteTitle}</PageTitle>
+            <Description>{description}</Description>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/robobo.png"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={siteName}
+                <Robo
+                  src="/images/robobobo.png"
+                  alt={siteTitle}
                 />
               </a>
             </Link>
-            <h1 className={utilStyles.heading2Xl}>{toolName}</h1>
-            <p className={utilStyles.description}>{description}</p>
+            <PageTitle>{toolTitle}</PageTitle>
+            <Description>{description}</Description>
           </>
         )}
-      </header>
+      </Header>
 
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </BackToHome>
       )}
-    </Container>
+    </PageContainer>
   )
 }

@@ -1,7 +1,6 @@
 import React from "react";
-import {CardDeck, Card} from "react-bootstrap";
 import Layout from "../components/layout";
-
+import {CardDeck, Card} from "react-bootstrap";
 
 export default function Home() {
   return (

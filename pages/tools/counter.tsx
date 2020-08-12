@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../components/layout";
 import {Card, CardDeck, Button} from "react-bootstrap";
 
-const toolName = 'Counter'
-
+const toolTitle = 'Counter'
 
 export default function Counter() {
   const [successCount, setSuccessCount] = useState(0);
@@ -11,7 +10,7 @@ export default function Counter() {
   const [dangerCount, setDangerCount] = useState(0);
 
   return (
-    <Layout toolName={toolName} description="Click 回数をカウントするよ">
+    <Layout toolTitle={toolTitle} description="Click 回数をカウントするよ">
 
       <CardDeck>
 
