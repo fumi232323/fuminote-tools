@@ -12,13 +12,14 @@ const CodeBlock = styled.div`
     Bitstream Vera Sans Mono, Courier New, monospace;
 `
 const toolTitle = 'URL decode'
+const description = 'URL をデコードするよ'
 
 export default function URLDecode() {
   const [url, setUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('The decoded URL will be displayed here.');
 
   return (
-    <Layout toolTitle={toolTitle} description="URL をデコードするよ">
+    <Layout toolTitle={toolTitle} description={description}>
 
       <InputGroup>
         <FormControl

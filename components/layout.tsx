@@ -58,6 +58,8 @@ export default function Layout({
   toolTitle?: string,
   description?: string,
 }) {
+  let pageTitle: string = toolTitle || siteTitle
+  let robo: string = "/images/robobobo.png"
   return (
     <PageContainer>
       <Head>
@@ -68,33 +70,25 @@ export default function Layout({
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{toolTitle || siteTitle}</title>
+        <title>{pageTitle}</title>
       </Head>
 
       <Header>
         {home ? (
           <>
-            <Robo
-              src="/images/robobobo.png"
-              alt={siteTitle}
-            />
-            <PageTitle>{siteTitle}</PageTitle>
-            <Description>{description}</Description>
+            <Robo src={robo} alt={siteTitle} />
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <Robo
-                  src="/images/robobobo.png"
-                  alt={siteTitle}
-                />
+                <Robo src={robo} alt={siteTitle} />
               </a>
             </Link>
-            <PageTitle>{toolTitle}</PageTitle>
-            <Description>{description}</Description>
           </>
         )}
+        <PageTitle>{pageTitle}</PageTitle>
+        <Description>{description}</Description>
       </Header>
 
       <main>{children}</main>

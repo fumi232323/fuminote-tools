@@ -8,10 +8,10 @@ export default function Home() {
 
       <CardDeck>
 
-        {/*<Card border="primary" >*/}
         <Card
-          bg="warning"
-          text="light"
+          bg="light"
+          text="dark"
+          border="info"
         >
           <Card.Link href="/tools/urldecoder">
             <Card.Body>
@@ -24,8 +24,9 @@ export default function Home() {
         </Card>
 
         <Card
-          bg="success"
+          bg="light"
           text="light"
+          border="info"
         >
           <Card.Link href="/tools/counter">
             <Card.Body>
