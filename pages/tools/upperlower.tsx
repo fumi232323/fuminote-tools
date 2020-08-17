@@ -8,7 +8,6 @@ const description = '大文字小文字変換するよ'
 export default function URLDecode() {
   const [srcLetters, setSrcLetters] = useState('');
   const [destLetters, setDestLetters] = useState('');
-  // アロー関数その１
   const swap = () => {
     setSrcLetters(destLetters);
     setDestLetters(srcLetters);
@@ -23,7 +22,7 @@ export default function URLDecode() {
           <Col>
             <Form.Control
               as="textarea"
-              rows="7"
+              rows={ 7 }
               placeholder="Enter letters that you want to convert."
               value={srcLetters}
               onChange={(event) => setSrcLetters(event.target.value)}
@@ -63,7 +62,7 @@ export default function URLDecode() {
           <Col>
             <Form.Control
               as="textarea"
-              rows="7"
+              rows={ 7 }
               placeholder="The converted letters will be displayed here."
               value={destLetters}
               readOnly
