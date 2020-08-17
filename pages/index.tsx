@@ -38,6 +38,21 @@ export default function Home() {
           </Card.Link>
         </Card>
 
+        <Card
+          bg="light"
+          text="light"
+          border="info"
+        >
+          <Card.Link href="/tools/upperlower">
+            <Card.Body>
+              <Card.Title>Uppercase &lt;=&gt; Lowercase</Card.Title>
+              <Card.Text>
+                Convert uppercase to lowercase and lowercase to uppercase.
+              </Card.Text>
+            </Card.Body>
+          </Card.Link>
+        </Card>
+
       </CardDeck><br />
 
       <CardDeck>
