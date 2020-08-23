@@ -45,7 +45,10 @@ const BackToHome = styled.div`
     text-decoration: underline;
   }
 `;
+
 const siteTitle = 'Fuminote tools'
+const robo: string = "/images/robobo.png"
+const icon: string = "/favicon.ico"
 
 export default function Layout({
   children,
@@ -59,17 +62,14 @@ export default function Layout({
   description?: string,
 }) {
   let pageTitle: string = toolTitle || siteTitle
-  let robo: string = "/images/robobobo.png"
   return (
     <PageContainer>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={icon} />
         <meta
           name="description"
           content="Fuminote tools made with Next.js"
         />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
         <title>{pageTitle}</title>
       </Head>
 
