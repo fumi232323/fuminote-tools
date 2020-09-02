@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, {ChangeEvent, useState} from "react";
 import Layout  from "../../components/layout";
 import {Button, Form, Col} from "react-bootstrap";
 
 const toolTitle = 'Uppercase Lowercase'
-const description = '大文字小文字変換するよ'
+const description = '大文字小文字変換するよ made with React Bootstrap'
 
 export default function URLDecode() {
   const [srcLetters, setSrcLetters] = useState('');
   const [destLetters, setDestLetters] = useState('');
-  const swap = () => {
+
+  const handleChangeSrcLetters = (event: ChangeEvent<HTMLInputElement>): void => {
+    setSrcLetters(event.target.value)
+  };
+  const handleClickUpper = (): void => {
+    setDestLetters(srcLetters.toUpperCase())
+  };
+  const handleClickLower = (): void => {
+    setDestLetters(srcLetters.toLowerCase())
+  };
+  const handleClickSwap = (): void => {
     setSrcLetters(destLetters);
     setDestLetters(srcLetters);
-    return;
-  }
+  };
 
   return (
     <Layout toolTitle={toolTitle} description={description}>
@@ -23,9 +32,10 @@ export default function URLDecode() {
             <Form.Control
               as="textarea"
               rows={ 7 }
+              aria-label="source letters"
               placeholder="Enter letters that you want to convert."
               value={srcLetters}
-              onChange={(event) => setSrcLetters(event.target.value)}
+              onChange={handleChangeSrcLetters}
             />
           </Col>
 
@@ -34,7 +44,7 @@ export default function URLDecode() {
               <Button
                 variant="warning"
                 size="lg"
-                onClick={() => setDestLetters(srcLetters.toUpperCase())}
+                onClick={handleClickUpper}
               >
                 Upper
               </Button>
@@ -43,7 +53,7 @@ export default function URLDecode() {
               <Button
                 variant="success"
                 size="lg"
-                onClick={() => setDestLetters(srcLetters.toLowerCase())}
+                onClick={handleClickLower}
               >
                 Lower
               </Button>
@@ -52,7 +62,7 @@ export default function URLDecode() {
               <Button
                 variant="secondary"
                 size="lg"
-                onClick={() => swap()}
+                onClick={handleClickSwap}
               >
                 Swap&nbsp;
               </Button>
@@ -63,6 +73,7 @@ export default function URLDecode() {
             <Form.Control
               as="textarea"
               rows={ 7 }
+              aria-label="destination letters"
               placeholder="The converted letters will be displayed here."
               value={destLetters}
               readOnly

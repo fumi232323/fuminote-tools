@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {ChangeEvent, useState} from "react";
 import Layout  from "../../components/layout";
 import {Card, InputGroup, FormControl, Button} from "react-bootstrap";
 import styled from 'styled-components';
@@ -18,6 +18,16 @@ export default function URLDecode() {
   const [url, setUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('The decoded URL will be displayed here.');
 
+  const handleChangeUrl = (event: ChangeEvent<HTMLInputElement>): void => {
+    setUrl(event.target.value)
+  };
+  const handleClickDecode = (): void => {
+    setDecodedUrl(decodeURI(url))
+  };
+  const handleClickReset = (): void => {
+    setUrl('')
+  };
+
   return (
     <Layout toolTitle={toolTitle} description={description}>
 
@@ -27,18 +37,18 @@ export default function URLDecode() {
           aria-label="url"
           aria-describedby="basic-addon2"
           value={url}
-          onChange={(event) => setUrl(event.target.value)}
+          onChange={handleChangeUrl}
         />
         <InputGroup.Append>
           <Button
             variant="primary"
-            onClick={() => setDecodedUrl(decodeURI(url))}
+            onClick={handleClickDecode}
           >
             Decode
           </Button>
           <Button
             variant="secondary"
-            onClick={() => setUrl('')}
+            onClick={handleClickReset}
           >
             Reset
           </Button>
