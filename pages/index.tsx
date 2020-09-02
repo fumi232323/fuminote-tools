@@ -10,29 +10,14 @@ export default function Home() {
 
         <Card
           bg="light"
-          text="dark"
-          border="info"
-        >
-          <Card.Link href="/tools/urldecoder">
-            <Card.Body>
-              <Card.Title>URL decode</Card.Title>
-              <Card.Text>
-                URL をデコードするよ!
-              </Card.Text>
-            </Card.Body>
-          </Card.Link>
-        </Card>
-
-        <Card
-          bg="light"
           text="light"
           border="info"
         >
-          <Card.Link href="/tools/counter">
+          <Card.Link href="/tools/upper_lower">
             <Card.Body>
-              <Card.Title>Counter</Card.Title>
+              <Card.Title><b>new! </b>Uppercase &lt;-&gt; Lowercase</Card.Title>
               <Card.Text>
-                Count click times.
+                Convert uppercase to lowercase and lowercase to uppercase.
               </Card.Text>
             </Card.Body>
           </Card.Link>
@@ -45,9 +30,42 @@ export default function Home() {
         >
           <Card.Link href="/tools/upperlower">
             <Card.Body>
-              <Card.Title>Uppercase &lt;=&gt; Lowercase</Card.Title>
+              <Card.Title>Uppercase &lt;-&gt; Lowercase</Card.Title>
               <Card.Text>
                 Convert uppercase to lowercase and lowercase to uppercase.
+              </Card.Text>
+            </Card.Body>
+          </Card.Link>
+        </Card>
+
+      </CardDeck><br />
+
+      <CardDeck>
+
+        <Card
+          bg="light"
+          text="dark"
+          border="info"
+        >
+          <Card.Link href="/tools/urldecoder">
+            <Card.Body>
+              <Card.Title>URL decode</Card.Title>
+              <Card.Text>
+                URL をデコードするよ!
+              </Card.Text>
+            </Card.Body>
+          </Card.Link>
+        </Card>
+        <Card
+          bg="light"
+          text="light"
+          border="info"
+        >
+          <Card.Link href="/tools/counter">
+            <Card.Body>
+              <Card.Title>Counter</Card.Title>
+              <Card.Text>
+                Count click times.
               </Card.Text>
             </Card.Body>
           </Card.Link>
