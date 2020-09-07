@@ -28,6 +28,7 @@ const PageTitle = styled.h1`
   line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.05rem;
+  text-align: center;
   margin: 1rem 0;
 `;
 const Description = styled.p`

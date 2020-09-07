@@ -14,7 +14,7 @@ const CodeBlock = styled.div`
 const toolTitle = 'URL decode'
 const description = 'URL をデコードするよ'
 
-export default function URLDecode() {
+export default function URLDecoder() {
   const [url, setUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('The decoded URL will be displayed here.');
 

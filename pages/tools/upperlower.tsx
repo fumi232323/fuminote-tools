@@ -5,7 +5,7 @@ import {Button, Form, Col} from "react-bootstrap";
 const toolTitle = 'Uppercase Lowercase'
 const description = '大文字小文字変換するよ made with React Bootstrap'
 
-export default function URLDecode() {
+export default function UpperLowerConverter() {
   const [srcLetters, setSrcLetters] = useState('');
   const [destLetters, setDestLetters] = useState('');
 
