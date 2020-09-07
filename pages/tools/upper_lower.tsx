@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import Layout  from "../../components/layout";
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {
   Button,
   ButtonGroup,
@@ -17,28 +17,34 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 const toolTitle = 'Uppercase Lowercase'
 const description = '大文字小文字変換するよ made with Material-UI'
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    textarea: {
-      paddingTop: '4px'
+    root: {
+      flexGrow: 1,
     },
     srcTextarea: {
-      paddingTop: '4px',
+      paddingTop: theme.spacing(0.5),
       resize: 'vertical',
     },
+    destTextarea: {
+      paddingTop: theme.spacing(0.5)
+    },
     adornedStart: {
-      padding: '8px 1px 1px 0',
+      alignItems: 'normal',
+      padding: theme.spacing(1, 0.1,0.1,0),
     },
     adornedEnd: {
-      padding: '8px 0 1px 12px',
-    },
-    root: {
       alignItems: 'normal',
+      padding: theme.spacing(1, 0.1,0.1,1.5),
+    },
+    inputAdornment: {
+      alignItems: 'normal',
+      margin: theme.spacing(0),
     },
   }),
 );
 
-export default function URLDecode() {
+export default function UpperLowerConverter() {
   const classes = useStyles();
   const [srcLetters, setSrcLetters] = useState('');
   const [destLetters, setDestLetters] = useState('');
@@ -71,7 +77,7 @@ export default function URLDecode() {
   return (
     <Layout toolTitle={toolTitle} description={description}>
 
-      <div>
+      <div className={classes.root}>
 
         <Grid container spacing={1}>
           <Grid item xs>
@@ -81,10 +87,7 @@ export default function URLDecode() {
               multiline
               fullWidth
               rows={ 10 }
-              classes={{
-                adornedStart: classes.adornedStart,
-                root: classes.root
-              }}
+              classes={{root: classes.adornedStart}}
               inputProps={{className: classes.srcTextarea}}
               placeholder="Enter letters that you want to convert."
               value={srcLetters}
@@ -92,7 +95,7 @@ export default function URLDecode() {
               startAdornment={
                 <InputAdornment
                   position="start"
-                  classes={{ root: classes.root }}
+                  classes={{root: classes.inputAdornment}}
                 >
                   <Tooltip
                     title="Delete"
@@ -148,17 +151,14 @@ export default function URLDecode() {
               fullWidth
               readOnly
               rows={ 10 }
-              inputProps={{className: classes.textarea}}
-              classes={{
-                adornedEnd: classes.adornedEnd,
-                root: classes.root
-              }}
+              inputProps={{className: classes.destTextarea}}
+              classes={{root: classes.adornedEnd}}
               placeholder="The converted letters will be displayed here."
               value={destLetters}
               endAdornment={
                 <InputAdornment
                   position="end"
-                  classes={{ root: classes.root }}
+                  classes={{root: classes.inputAdornment}}
                 >
                   <Tooltip
                     arrow
